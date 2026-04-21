@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Vocacional</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container" id="intro">
+
+        <h1 class="pergunta">
+            Antes de começar, preencha seus dados
+        </h1>
+
+        <div class="formulario">
+            <input type="text" id="nome" placeholder="Seu nome (opcional)">
+
+            <input type="email" id="email" placeholder="Seu email *" required>
+
+            <input type="number" id="idade" placeholder="Sua idade (opcional)">
+        </div>
+
+        <button class="btn-proximo" id="btnComecar">Começar</button>
+
+    </div>
+    <div class="container" id="quiz" style="display:none;">
+
+        <!-- TOPO -->
+        <div class="topo">
+            <span>Pergunta 1 de 25</span>
+            <span>25%</span>
+        </div>
+
+        <div class="barra">
+            <div class="progresso"></div>
+        </div>
+
+        <!-- PERGUNTA -->
+        <h1 class="pergunta">
+            Como você prefere aprender um novo idioma?
+        </h1>
+
+        <!-- RESPOSTAS -->
+        <div class="respostas" id="respostas"></div>
+
+        <!-- BOTÃO -->
+        <button class="btn-proximo" id="btnProximo">Próxima</button>
+
+    </div>
+    <div class="container" id="resultado" style="display:none;">
+
+        <!-- Cabeçalho -->
+        <h1 class="titulo-resultado">Seu Resultado</h1>
+        <p class="subtitulo">
+            Descobrimos o perfil ideal de aprendizado para você.
+        </p>
+
+        <!-- Gráficos -->
+        <div class="graficos">
+
+            <div class="grafico-item">
+                <canvas id="grafico1"></canvas>
+                <span class="percent" id="p1">0%</span>
+                <p>Analítico</p>
+            </div>
+
+            <div class="grafico-item">
+                <canvas id="grafico2"></canvas>
+                <span class="percent" id="p2">0%</span>
+                <p>Criativo</p>
+            </div>
+
+            <div class="grafico-item">
+                <canvas id="grafico3"></canvas>
+                <span class="percent" id="p3">0%</span>
+                <p>Social</p>
+            </div>
+
+            <div class="grafico-item">
+                <canvas id="grafico4"></canvas>
+                <span class="percent" id="p4">0%</span>
+                <p>Investigativo</p>
+            </div>
+
+        </div>
+
+        <div class="perfil-resultado" id="perfilResultado">
+            <h2 id="tituloPerfil"></h2>
+            <p id="descricaoPerfil"></p>
+        </div>
+
+        <!-- Recomendações -->
+        <div class="cards">
+            <div class="card">Inglês Conversação</div>
+            <div class="card">Espanhol Intensivo</div>
+            <div class="card">Francês para Viagens</div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
