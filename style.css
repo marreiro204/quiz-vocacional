@@ -31,8 +31,11 @@ body {
 }
 
 .container {
-  width: 700px;
+  width: 100%;             /* Permite que ele se adapte a telas menores */
+  max-width: 700px;        /* Substitui o width fixo de 700px para não estourar */
   text-align: center;
+  padding: 0 20px;         /* Evita que o conteúdo cole nas bordas do navegador */
+  box-sizing: border-box;  /* Garante que o padding não aumente o tamanho total */
 }
 
 .topo {
@@ -171,3 +174,98 @@ body {
   line-height: 1.5;
 }
 
+/* --- 📱 AJUSTES EXCLUSIVOS PARA CELULAR (Telas até 480px) --- */
+@media (max-width: 480px) {
+  
+  body {
+    padding: 20px 0;       /* Diminui o espaçamento do topo e base no celular */
+  }
+
+  .container {
+    padding: 0 15px;       /* Margem lateral perfeita para o celular */
+  }
+
+  /* Reduz os títulos grandes para caberem sem quebrar linhas de forma feia */
+  .pergunta, 
+  .titulo-resultado {
+    font-size: 22px;       
+    margin-bottom: 25px;   /* Diminui a distância para os elementos abaixo */
+  }
+
+  /* Ajustes do Formulário de Introdução */
+  .formulario {
+    gap: 12px;             /* inputs um pouco mais próximos */
+    margin-bottom: 25px;
+  }
+
+  .formulario input {
+    padding: 14px;         /* Altura confortável para o toque do dedo */
+    font-size: 16px;       /* ⚠️ ESSENCIAL: Impede o zoom automático indesejado no iPhone */
+  }
+
+  /* Ajustes da área do Quiz */
+  .barra {
+    margin-bottom: 25px;   /* Diminui o espaço sob a barra de progresso */
+  }
+
+  .respostas {
+    gap: 10px;             /* Aproxima as opções do quiz */
+    margin-bottom: 25px;
+  }
+
+  .opcao {
+    padding: 12px 14px;    /* Opções ligeiramente menores e mais fáceis de ler */
+    font-size: 15px;
+  }
+
+  .opcao.selecionada::after {
+    right: 12px;           /* Ajusta o ícone de ✔️ na nova margem */
+  }
+
+  /* Torna o botão de próxima responsivo */
+  .btn-proximo {
+    width: 100%;           /* O botão vira bloco inteiro, facilitando o clique no celular */
+    padding: 14px;
+    font-size: 16px;
+  }
+
+  /* Gráficos de Resultados */
+  .subtitulo {
+    margin-bottom: 25px;
+  }
+
+  .graficos {
+    /* Em celulares muito pequenos, se 2 colunas espremerem, 
+       esta linha muda automaticamente para 1 coluna */
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); 
+    gap: 15px;
+    margin-bottom: 25px;
+  }
+
+  .grafico-item {
+    width: 130px;          /* Diminui levemente o tamanho do gráfico no celular */
+  }
+
+  .grafico-item canvas {
+    width: 130px !important;
+    height: 130px !important;
+  }
+
+  .percent {
+    font-size: 18px;       /* Número da porcentagem proporcional ao gráfico menor */
+  }
+
+  /* Bloco de descrição do perfil dominante no rodapé */
+  .perfil-resultado {
+    padding: 15px;         /* Menos espaço interno para não alongar demais a tela */
+    margin: 20px 0;
+  }
+
+  .perfil-resultado h2 {
+    font-size: 18px;
+  }
+
+  .perfil-resultado p {
+    font-size: 14px;
+  }
+}
